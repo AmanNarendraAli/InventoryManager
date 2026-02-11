@@ -8,6 +8,7 @@ class Product(models.Model):
     price = models.FloatField()
     quantity = models.IntegerField
     supplier = models.CharField(max_length=100)
-
+    class Meta:
+        db_table = "InventoryManager"
     def __str__(self):
         return self.name
