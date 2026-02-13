@@ -1,42 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} Inventory App {% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body{
+        body {
             padding-top: 56px;
         }
-        .navbar{
+
+        .navbar {
             background-color: #343a40;
         }
-        .navbar-brand, .nav-link{
+
+        .navbar-brand,
+        .nav-link {
             color: #fff !important;
         }
-        .container{
+
+        .container {
             margin-top: 20px;
         }
-        .table th, .table td{
+
+        .table th,
+        .table td {
             vertical-align: middle;
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a href="{% url 'home'%}" class="navbar-brand"> Inventory App </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{url 'createproduct'}" class="nav-link"> Add Product </a>
+                    <a href="{% url 'createproduct'%}" class="nav-link"> Add Product </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{url 'productlist'}" class="nav-link"> Add Product </a>
+                    <a href="{% url 'productlist'%}" class="nav-link"> See Products </a>
                 </li>
             </ul>
     </nav>
@@ -45,7 +54,9 @@
 
         {% endblock %}
     </div>
-    <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js" integrity="sha256-8DGpv13HIm+5iDNWw1XqxgFB4mj+yOKFNb+tHBZOowc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js"
+        integrity="sha256-8DGpv13HIm+5iDNWw1XqxgFB4mj+yOKFNb+tHBZOowc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

@@ -17,7 +17,7 @@ def create_view(request):
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
-            form.save
+            form.save()
             return redirect('productlist')
     return render(request,'productform.html',{'form':form}) #if request is not a POST/submission, we just go back to the empty form template view
 
