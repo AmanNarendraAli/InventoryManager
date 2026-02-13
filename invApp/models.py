@@ -6,7 +6,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length=100)
     sku = models.CharField(max_length = 50,unique=True)
     price = models.FloatField()
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(default=1)
     supplier = models.CharField(max_length=100)
     class Meta: #used to specify additional options for the model, such as the name of the database table to use, ordering of query results, and other metadata
         db_table = "InventoryManager"
