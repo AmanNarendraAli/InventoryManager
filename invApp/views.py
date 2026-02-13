@@ -38,4 +38,12 @@ def update_view(request,product_id):
             form.save()
             return redirect('productlist')
     return render(request,'productform.html',{'form':form})
+
 #Delete View
+
+def delete_view(request,product_id):
+    product = Product.objects.get(product_id=product_id)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('productlist')
+    return render(request,'confirmdelete.html',{'product':product})
