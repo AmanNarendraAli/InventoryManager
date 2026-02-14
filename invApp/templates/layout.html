@@ -34,22 +34,55 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a href="{% url 'home'%}" class="navbar-brand"> Inventory App </a>
+        <a href="{% url 'invApp:home'%}" class="navbar-brand"> Inventory App </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto">
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a href="{% url 'createproduct'%}" class="nav-link"> Add Product </a>
+                    <a href="{% url 'invApp:createproduct'%}" class="nav-link"> Add Product </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'productlist'%}" class="nav-link"> See Products </a>
+                    <a href="{% url 'invApp:productlist'%}" class="nav-link"> See Products </a>
                 </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="nav-link text-white">Hello, {{ user.username }}!</span>
+                </li>
+                <li class="nav-item">
+                    <form action="{% url 'authApp:logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link"
+                            style="display: inline; cursor: pointer;">Logout</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'authApp:login' %}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'authApp:register' %}" class="nav-link">Register</a>
+                </li>
+                {% endif %}
             </ul>
     </nav>
     <div class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
         {% block content %}
 
         {% endblock %}

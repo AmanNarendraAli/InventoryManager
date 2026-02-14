@@ -7,14 +7,14 @@ Product List
 {% block content %}
 <h1 class="text-center"> Product List </h1>
 <table class="table table-bordered table-striped text-center">
-    <thead class = "thead-dark">
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>SKU</th>    
+            <th>SKU</th>
             <th>Quantity</th>
             <th>Price</th>
-            <th>Supplier</th>    
+            <th>Supplier</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -28,8 +28,8 @@ Product List
             <td>${{ product.price }}</td>
             <td>{{ product.supplier }}</td>
             <td>
-                <a href="{% url 'updateproduct' product.product_id %}" class="btn btn-sm btn-warning">Edit</a>
-                <a href="{% url 'deleteproduct' product.product_id %}" class="btn btn-sm btn-danger">Delete</a>
+                <a href="{% url 'invApp:updateproduct' product.product_id %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'invApp:deleteproduct' product.product_id %}" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
         {% empty %}

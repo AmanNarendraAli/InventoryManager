@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'invApp',
     'crispy_forms',
     'crispy_bootstrap5',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+LOGIN_URL = 'authApp:login'
+
+LOGIN_REDIRECT_URL = 'products'

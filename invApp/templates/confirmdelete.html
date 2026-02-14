@@ -9,6 +9,6 @@ Delete Title
 <form method="POST" class="text-center">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger"> Delete </button>
-    <a href="{% url 'productlist' %}" class="btn btn-secondary"> Cancel </a>
+    <a href="{% url 'invApp:productlist' %}" class="btn btn-secondary"> Cancel </a>
 </form>
 {% endblock %}
